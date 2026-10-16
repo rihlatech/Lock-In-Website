@@ -18,10 +18,14 @@ const sections = [
 
 function Section({ id, title, children }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-[#25231F]/10 py-8 sm:py-10">
+    <section
+      id={id}
+      className="scroll-mt-28 border-t border-[#25231F]/10 py-8 sm:py-10"
+    >
       <h2 className="font-display text-3xl font-normal tracking-tight sm:text-4xl">
         {title}
       </h2>
+
       <div className="mt-5 space-y-4 text-sm leading-7 text-[#625C53]">
         {children}
       </div>
@@ -29,18 +33,14 @@ function Section({ id, title, children }) {
   );
 }
 
-function DraftNotice() {
+function ContactLink({ href, children }) {
   return (
-    <div className="border border-[#8B714A]/30 bg-[#E9DFCE]/50 p-5">
-      {/* <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8B714A]">
-        Draft for review
-      </p> */}
-      {/* <p className="mt-2 text-sm leading-6 text-[#625C53]">
-        This draft must be checked against the live app, its database,
-        analytics, AI providers and payment provider before publication.
-        Have a qualified Kenyan lawyer review it.
-      </p> */}
-    </div>
+    <a
+      href={href}
+      className="text-[#8B714A] underline underline-offset-4"
+    >
+      {children}
+    </a>
   );
 }
 
@@ -52,21 +52,21 @@ export default function Privacy() {
           <p className="text-xs uppercase tracking-[0.22em] text-[#8B714A]">
             Lock-In / Legal
           </p>
+
           <h1 className="mt-5 font-display text-6xl font-light leading-[0.95] sm:text-7xl lg:text-8xl">
             Privacy
             <br />
             Policy.
           </h1>
+
           <p className="mt-6 max-w-2xl text-sm leading-7 text-[#625C53] sm:text-base">
-            How Lock-In handles information when you use the planner,
-            manage your account or use AI features.
+            How Lock-In handles your personal information when you manage
+            your account, use the planner, or access AI-powered features.
           </p>
+
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-xs text-[#625C53]">
-            <span>Effective date: [insert effective date]</span>
-            <span>Last updated: [insert date]</span>
-          </div>
-          <div className="mt-8 max-w-2xl">
-            <DraftNotice />
+            <span>Effective date: 15 October 2026</span>
+            <span>Last updated: 15 October 2026</span>
           </div>
         </div>
       </header>
@@ -76,6 +76,7 @@ export default function Privacy() {
           <p className="text-xs uppercase tracking-[0.18em] text-[#8B714A]">
             On this page
           </p>
+
           <nav className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {sections.map(([id, label]) => (
               <a
@@ -87,6 +88,7 @@ export default function Privacy() {
               </a>
             ))}
           </nav>
+
           <Link
             to="/terms"
             className="mt-8 inline-block border-b border-[#8B714A] pb-1 text-sm text-[#8B714A]"
@@ -97,281 +99,432 @@ export default function Privacy() {
 
         <article className="min-w-0">
           <p className="mb-8 text-sm leading-7 text-[#625C53]">
-            This Privacy Policy describes the intended approach to personal
-            information associated with Lock-In, a planning and productivity
-            service operated by Sensation Marketing Agency. The final policy
-            must match the Service's actual technical behaviour and comply
-            with applicable Kenyan data protection law.
+            This Privacy Policy explains how Lock-In collects, uses, stores,
+            and protects personal information in connection with its planning
+            and productivity services. Lock-In is operated by Sensation
+            Marketing Agency, a registered business. By using the Service,
+            you acknowledge that your information may be handled as described
+            in this Policy, subject to your rights under applicable law.
           </p>
 
           <Section id="controller" title="1. Who Is Responsible">
             <p>
-              Lock-In is operated by Sensation Marketing Agency. For
-              questions about this policy or personal information, contact
-              sensationmagency@gmail.com or +254 797 983216.
+              Sensation Marketing Agency is responsible for the operation
+              of Lock-In and for handling privacy enquiries relating to
+              the Service.
             </p>
+
             <p>
-              Business address: [insert confirmed business address].
-              Any required data-controller registration details or privacy
-              contact details must be confirmed before publication.
+              If you have a question about your personal information, wish
+              to exercise a privacy right, or have a concern about how your
+              information is handled, you can contact us using the details
+              provided in the Contact Us section below.
+            </p>
+
+            <p>
+              This Policy is intended to be read alongside the Lock-In
+              Terms &amp; Conditions.
             </p>
           </Section>
 
           <Section id="information" title="2. Information We Handle">
-            <p>Depending on the features you use, Lock-In may process:</p>
+            <p>
+              The information associated with your use of Lock-In depends
+              on the features you access and the information you choose
+              to provide. It may include the following categories:
+            </p>
+
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                <strong className="text-[#25231F]">Account information:</strong>{" "}
-                name, email address, country, account identifiers and
-                authentication-related information.
+                <strong className="text-[#25231F]">
+                  Account information:
+                </strong>{" "}
+                your name, email address, account identifier, country
+                or region, and information used to authenticate and
+                maintain your account.
               </li>
+
               <li>
-                <strong className="text-[#25231F]">Planner content:</strong>{" "}
+                <strong className="text-[#25231F]">
+                  Planner information:
+                </strong>{" "}
                 goals, tasks, schedules, notes, vision-board entries,
-                reviews and preferences you choose to save.
+                progress reviews, self-care activities, preferences,
+                and other content you choose to save.
               </li>
+
               <li>
-                <strong className="text-[#25231F]">AI interactions:</strong>{" "}
-                prompts, messages and responses needed to provide AI features.
-                The final policy must identify which interaction records are
-                stored and for how long.
+                <strong className="text-[#25231F]">
+                  AI interactions:
+                </strong>{" "}
+                prompts, messages, responses, and related information
+                processed when you use AI-powered planning, recommendations,
+                progress insights, or voice features.
               </li>
+
               <li>
-                <strong className="text-[#25231F]">Subscription information:</strong>{" "}
-                plan, subscription status, transaction references, payment
-                status and records needed to manage purchases. Payment
-                credentials handled by a payment provider may be subject to
-                that provider's own privacy terms.
+                <strong className="text-[#25231F]">
+                  Subscription and transaction information:
+                </strong>{" "}
+                your subscription plan, account status, payment confirmations,
+                transaction references, amounts, purchase history, and
+                information needed to manage billing or resolve payment
+                disputes.
               </li>
+
               <li>
-                <strong className="text-[#25231F]">Technical information:</strong>{" "}
-                information such as logs, device or browser details, and
-                diagnostics, if the live Service collects them.
+                <strong className="text-[#25231F]">
+                  Technical and usage information:
+                </strong>{" "}
+                technical logs, diagnostic information, and information
+                about interactions with the Service where generated or
+                collected by the systems used to operate it.
+              </li>
+
+              <li>
+                <strong className="text-[#25231F]">
+                  Communications:
+                </strong>{" "}
+                information you provide when contacting support, reporting
+                a problem, or making a privacy request.
               </li>
             </ul>
+
             <p>
-              The exact fields collected, including analytics, cookies,
-              crash reports and usage logs, must be verified against the
-              production app and its service providers.
+              Please provide only information that is relevant to your
+              planning needs. Avoid including passwords, payment credentials,
+              or sensitive personal information that is unnecessary for
+              the feature you are using.
             </p>
           </Section>
 
           <Section id="use" title="3. How Information Is Used">
-            <p>Information may be used to:</p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>Create and maintain your account.</li>
-              <li>Save and display your planning information.</li>
-              <li>Provide reminders and requested app features.</li>
-              <li>Operate subscriptions, verify payments and manage refunds.</li>
-              <li>Provide AI features you choose to use.</li>
-              <li>Protect the Service, investigate abuse and troubleshoot errors.</li>
-              <li>Respond to support requests and meet legal obligations.</li>
-            </ul>
             <p>
-              The final policy should specify the applicable legal bases for
-              processing and any optional analytics or marketing uses. We
-              should not claim that information is never viewed or processed
-              unless the system design and actual access arrangements support
-              that statement.
+              Personal information may be used for the following purposes:
+            </p>
+
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Create, authenticate, and maintain your account.</li>
+              <li>Save, organise, and display your planner content.</li>
+              <li>Provide scheduling, progress tracking, and other requested features.</li>
+              <li>Deliver AI-powered assistance and related functionality.</li>
+              <li>Manage subscriptions, process payment confirmations, and handle billing enquiries.</li>
+              <li>Maintain the reliability, functionality, and security of the Service.</li>
+              <li>Investigate suspected fraud, misuse, or violations of the Terms &amp; Conditions.</li>
+              <li>Respond to enquiries and provide customer support.</li>
+              <li>Meet applicable legal, regulatory, and record-keeping obligations.</li>
+            </ul>
+
+            <p>
+              We handle personal information for purposes connected to
+              providing and managing Lock-In, meeting legal obligations,
+              protecting the Service, and other lawful purposes that apply
+              to the relevant processing activity.
             </p>
           </Section>
 
           <Section id="ai" title="4. AI Features">
             <p>
-              If you use Lock-In AI, information you provide may be processed
-              by the AI service provider to generate replies, summaries,
-              suggestions or voice interactions.
+              Lock-In may provide AI-powered features such as planning
+              assistance, progress insights, smart recommendations,
+              agent actions, and voice interactions. These features use
+              information relevant to your request to generate responses
+              or perform the functions you initiate.
             </p>
+
             <p>
-              Do not enter passwords, payment credentials or sensitive
-              information that is not needed for your planning task.
-              AI-generated content can be inaccurate.
+              When an AI feature uses an external AI service provider,
+              relevant prompts, messages, contextual planner information,
+              or voice-related data may be transmitted to that provider
+              for processing. The information involved depends on the
+              feature you choose to use.
             </p>
+
             <p>
-              Before publication, identify the AI providers used, the
-              information sent to each provider, applicable provider
-              retention and training settings, processing locations,
-              and any cross-border transfers.
+              AI-generated responses may be incomplete, inaccurate, or
+              unsuitable for your circumstances. You should review
+              suggestions before acting on them. AI features are intended
+              to support your planning and productivity, not to replace
+              your own judgement or qualified professional advice.
             </p>
+
             <p>
-              Voice processing and storage must be described according to
-              the live implementation. Do not assume that audio is never
-              stored until this has been verified.
+              Where AI conversation history or related memory is saved
+              within Lock-In, it may be used to maintain context and
+              improve continuity across your interactions. You remain
+              responsible for the information you choose to share.
+              Available memory controls can be used to manage or remove
+              saved AI-related information.
             </p>
+
             <p>
-              Where a feature requires permission, the app should explain
-              what is enabled and provide a way to withdraw that permission
-              where applicable.
+              Voice features may process audio and associated conversation
+              data to provide spoken interactions. The handling of audio,
+              transcripts, and related records depends on the feature and
+              the services used to deliver it.
+            </p>
+
+            <p>
+              Do not use AI features to submit passwords, payment card
+              details, or sensitive information that is not necessary
+              for your request.
             </p>
           </Section>
 
           <Section id="payments" title="5. Payments">
             <p>
-              Lock-In offers paid subscription plans. Payments will be
-              handled through the payment provider presented at checkout.
+              Lock-In offers paid subscription plans and may provide
+              additional paid features or usage packages. The available
+              prices, included features, usage allowances, and renewal
+              terms are presented through the relevant purchase flow.
             </p>
+
             <p>
-              We may receive payment confirmations, transaction references,
-              amounts, timestamps and subscription status to administer your
-              plan and resolve payment issues.
+              Payment transactions are handled through the payment
+              methods and providers made available at checkout. Those
+              providers may process payment information under their own
+              privacy policies and applicable terms.
             </p>
+
             <p>
-              The final policy must name the actual payment provider and
-              describe the payment information it receives, the information
-              Lock-In receives in return, and the applicable retention
-              periods.
+              Lock-In may receive transaction references, payment status,
+              amounts, timestamps, subscription details, and other
+              information needed to confirm purchases, manage access,
+              address failed payments, process refunds, and maintain
+              appropriate financial records.
+            </p>
+
+            <p>
+              Do not send payment card details, account passwords, or
+              other payment credentials through planner notes, AI chats,
+              or support messages.
             </p>
           </Section>
 
           <Section id="sharing" title="6. When Information Is Shared">
             <p>
-              Information may be processed by service providers needed to
-              operate Lock-In, such as hosting, database, authentication,
-              email, payment and AI providers, to the extent those providers
-              are actually used.
+              Personal information may be processed by service providers
+              where necessary to operate, maintain, and support Lock-In.
+              Depending on the feature, these may include providers of
+              hosting, databases, authentication, payment processing,
+              AI services, communications, and technical infrastructure.
             </p>
+
             <p>
-              Information may also be disclosed when required by law or
-              where necessary to protect the rights, safety and security
-              of users or the Service.
+              Information may also be disclosed where required by law,
+              pursuant to a lawful request, or where reasonably necessary
+              to investigate suspected fraud, enforce the Terms &amp;
+              Conditions, protect users, or safeguard the rights and
+              security of the Service.
             </p>
+
             <p>
-              Before publication, list the actual providers, explain their
-              roles, and confirm whether information is transferred outside
-              Kenya and what safeguards apply. Do not publish an assumed
-              provider list.
+              Where a service provider processes personal information on
+              our behalf, access should be limited to what is reasonably
+              necessary for its role and subject to applicable contractual
+              and legal requirements.
+            </p>
+
+            <p>
+              Some providers may process information in countries outside
+              Kenya. Where personal information is transferred across
+              borders, the transfer must be handled in accordance with
+              applicable data protection requirements.
+            </p>
+
+            <p>
+              We do not treat your personal planner content as public
+              content merely because you save it in Lock-In. Information
+              is shared as necessary for the operation of the Service,
+              as described in this Policy, or where otherwise permitted
+              or required by law.
             </p>
           </Section>
 
           <Section id="retention" title="7. Data Retention">
             <p>
-              Information should be retained only for as long as necessary
-              for the purposes for which it was collected, including
-              providing the Service, maintaining required records, resolving
-              disputes and meeting legal obligations.
+              Personal information is retained for as long as reasonably
+              necessary for the purposes for which it was collected,
+              including providing the Service, maintaining your account,
+              managing subscriptions, resolving disputes, preventing
+              misuse, and meeting applicable legal obligations.
             </p>
+
             <p>
-              Retention periods for account records, planner content, AI
-              messages, payment records, backups and technical logs must
-              be confirmed before publication.
+              If you request account deletion, we will handle the request
+              in accordance with the applicable deletion process and
+              relevant legal requirements. Deletion may remove account
+              information and associated planner content, subject to
+              information that must be retained or that remains temporarily
+              in protected backups.
             </p>
+
             <p>
-              You may request account deletion. Explain the actual deletion
-              process, what is deleted, what may remain in backups and what
-              must be retained by law once the production process has been
-              verified.
+              Certain transaction records or other information may need
+              to be retained for legal, accounting, security, or dispute
+              resolution purposes. Where retention is required, the
+              information should not be kept for longer than the applicable
+              purpose or legal requirement permits.
+            </p>
+
+            <p>
+              Information retained in backups may not be removed immediately
+              when information is deleted from active systems. Access to
+              retained information remains subject to appropriate safeguards
+              and applicable requirements.
             </p>
           </Section>
 
           <Section id="security" title="8. Security">
             <p>
-              We aim to use appropriate safeguards to protect personal
-              information against unauthorised access, loss, alteration
-              or disclosure.
+              We take reasonable measures designed to protect personal
+              information against unauthorised access, disclosure,
+              alteration, loss, and destruction.
             </p>
+
             <p>
-              No online service can guarantee absolute security. If you
-              believe your account has been compromised, contact us promptly.
+              Security also depends on how you use the Service. Keep your
+              login credentials confidential, use a secure device, and
+              notify us promptly if you suspect unauthorised access to
+              your account.
             </p>
+
             <p>
-              The final policy should describe the safeguards actually
-              implemented and the process for handling personal data
-              breaches, without making unsupported security guarantees.
+              No online service or method of electronic storage can be
+              guaranteed to be completely secure. We cannot promise
+              that every security risk can be eliminated, but personal
+              information should be handled with safeguards appropriate
+              to the nature of the information and the risks involved.
+            </p>
+
+            <p>
+              Where a personal data breach occurs, it will be handled
+              in accordance with applicable legal and regulatory
+              requirements.
             </p>
           </Section>
 
           <Section id="rights" title="9. Your Choices and Rights">
             <p>
-              Depending on applicable law and the circumstances, you may
-              have rights to request access to, correction of, deletion of
-              or other action concerning your personal information, and to
-              object to or restrict certain processing.
+              Subject to applicable law and the circumstances of your
+              request, you may have the right to:
             </p>
+
+            <ul className="list-disc space-y-2 pl-5">
+              <li>Be informed about how your personal information is used.</li>
+              <li>Request access to personal information held about you.</li>
+              <li>Request correction of inaccurate or incomplete information.</li>
+              <li>Request deletion of personal information where legally applicable.</li>
+              <li>Object to or request restriction of certain processing where applicable.</li>
+              <li>Withdraw consent where processing relies on consent, without affecting the lawfulness of earlier processing.</li>
+              <li>Raise a complaint with the relevant data protection authority.</li>
+            </ul>
+
             <p>
-              You may manage available account, reminder and AI permissions
-              through the app settings. You may also contact us to make a
-              privacy request or ask a question.
+              You can also use the account and feature controls made
+              available in Lock-In to manage your information, preferences,
+              and AI-related memory. The controls available may depend
+              on the feature.
             </p>
+
             <p>
-              Email{" "}
-              <a
-                href="mailto:sensationmagency@gmail.com"
-                className="text-[#8B714A] underline underline-offset-4"
-              >
+              To make a privacy request, email{" "}
+              <ContactLink href="mailto:sensationmagency@gmail.com">
                 sensationmagency@gmail.com
-              </a>{" "}
-              or call/WhatsApp{" "}
-              <a
-                href="https://wa.me/254797983216"
-                className="text-[#8B714A] underline underline-offset-4"
-              >
+              </ContactLink>{" "}
+              or contact us by phone or WhatsApp at{" "}
+              <ContactLink href="https://wa.me/254797983216">
                 +254 797 983216
-              </a>.
+              </ContactLink>.
             </p>
+
             <p>
-              We may need to verify your identity before acting on a request.
-              Applicable law may permit certain information to be retained
-              or limit a requested action.
+              We may need to verify your identity before processing a
+              request. Some information may need to be retained, and
+              certain requests may be limited, where permitted or required
+              by applicable law.
             </p>
           </Section>
 
           <Section id="children" title="10. Children's Privacy">
             <p>
-              Lock-In is intended for users aged 18 and over, subject to
-              confirmation of the final eligibility rules. We do not
-              knowingly intend to collect personal information from children
-              in violation of applicable law.
+              Lock-In is intended for individuals aged 18 and over.
+              We do not knowingly seek to collect children's personal
+              information in circumstances where doing so would violate
+              applicable law.
             </p>
+
             <p>
               If you believe a child has provided personal information
-              contrary to the applicable rules, contact us so the matter
-              can be reviewed.
+              in circumstances that are not permitted, please contact
+              us. We will review the concern and take appropriate action
+              in accordance with applicable law.
             </p>
           </Section>
 
           <Section id="changes" title="11. Changes to This Policy">
             <p>
-              We may update this policy when our practices or legal
-              obligations change. Material changes will be communicated
-              through the Service or by email where appropriate or required
-              by law.
+              This Privacy Policy may be updated from time to time to
+              reflect changes to Lock-In, its features, information
+              handling practices, or applicable legal requirements.
             </p>
+
             <p>
-              The effective date at the top of this page indicates when
-              the current version applies.
+              Where a change is material, we will take reasonable steps
+              to communicate it through the Service, by email, or through
+              another appropriate channel where required by law.
+            </p>
+
+            <p>
+              The effective date and last-updated date at the top of
+              this page identify the version currently published.
+              Continued use of Lock-In after an update is subject to
+              the revised Policy to the extent permitted by applicable law.
             </p>
           </Section>
 
           <Section id="contact" title="12. Contact Us">
             <div className="border border-[#25231F]/10 p-5">
-              <p><strong className="text-[#25231F]">Lock-In</strong></p>
-              <p>Operator: Sensation Marketing Agency</p>
+              <p>
+                <strong className="text-[#25231F]">Lock-In</strong>
+              </p>
+
+              <p>
+                Operated by Sensation Marketing Agency
+              </p>
+
               <p>
                 Email:{" "}
-                <a
-                  href="mailto:sensationmagency@gmail.com"
-                  className="text-[#8B714A] underline underline-offset-4"
-                >
+                <ContactLink href="mailto:sensationmagency@gmail.com">
                   sensationmagency@gmail.com
-                </a>
+                </ContactLink>
               </p>
+
               <p>
                 Phone / WhatsApp:{" "}
-                <a
-                  href="https://wa.me/254797983216"
-                  className="text-[#8B714A] underline underline-offset-4"
-                >
+                <ContactLink href="https://wa.me/254797983216">
                   +254 797 983216
-                </a>
+                </ContactLink>
               </p>
-              <p>Business address: [insert confirmed business address].</p>
             </div>
+
+            <p>
+              Please include enough information for us to understand
+              your enquiry, but do not send passwords, payment credentials,
+              or unnecessary sensitive personal information.
+            </p>
           </Section>
 
           <div className="border-t border-[#25231F]/10 pt-8">
-            <DraftNotice />
-            <p className="mt-6 text-sm text-[#625C53]">
-              Read our <Link to="/terms" className="text-[#8B714A] underline underline-offset-4">Terms &amp; Conditions</Link>.
+            <p className="text-sm text-[#625C53]">
+              Read our{" "}
+              <Link
+                to="/terms"
+                className="text-[#8B714A] underline underline-offset-4"
+              >
+                Terms &amp; Conditions
+              </Link>
+              .
             </p>
           </div>
         </article>

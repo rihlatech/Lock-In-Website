@@ -25,10 +25,14 @@ const sections = [
 
 function Section({ id, title, children }) {
   return (
-    <section id={id} className="scroll-mt-28 border-t border-[#25231F]/10 py-8 sm:py-10">
+    <section
+      id={id}
+      className="scroll-mt-28 border-t border-[#25231F]/10 py-8 sm:py-10"
+    >
       <h2 className="font-display text-3xl font-normal tracking-tight sm:text-4xl">
         {title}
       </h2>
+
       <div className="mt-5 space-y-4 text-sm leading-7 text-[#625C53]">
         {children}
       </div>
@@ -36,18 +40,14 @@ function Section({ id, title, children }) {
   );
 }
 
-function DraftNotice() {
+function LegalLink({ to, children }) {
   return (
-    <div className="border border-[#8B714A]/30 bg-[#E9DFCE]/50 p-5">
-      {/* <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8B714A]">
-        Draft for review
-      </p>
-      <p className="mt-2 text-sm leading-6 text-[#625C53]">
-        This document is a draft and has not been approved for publication.
-        Please confirm all outstanding details and have a qualified Kenyan
-        lawyer review it before publishing.
-      </p> */}
-    </div>
+    <Link
+      to={to}
+      className="text-[#8B714A] underline underline-offset-4"
+    >
+      {children}
+    </Link>
   );
 }
 
@@ -59,21 +59,22 @@ export default function Terms() {
           <p className="text-xs uppercase tracking-[0.22em] text-[#8B714A]">
             Lock-In / Legal
           </p>
+
           <h1 className="mt-5 font-display text-6xl font-light leading-[0.95] sm:text-7xl lg:text-8xl">
             Terms &amp;
             <br />
             Conditions.
           </h1>
+
           <p className="mt-6 max-w-2xl text-sm leading-7 text-[#625C53] sm:text-base">
-            The terms that apply when you use Lock-In, manage your plans,
-            subscribe to a plan or use Lock-In AI.
+            These Terms explain the rules that apply when you use
+            Lock-In, manage your plans, purchase a subscription or
+            use Lock-In AI.
           </p>
+
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-xs text-[#625C53]">
-            <span>Effective date: [insert effective date]</span>
-            <span>Last updated: [insert date]</span>
-          </div>
-          <div className="mt-8 max-w-2xl">
-            <DraftNotice />
+            <span>Effective date: 15 October 2026</span>
+            <span>Last updated: 15 October 2026</span>
           </div>
         </div>
       </header>
@@ -83,6 +84,7 @@ export default function Terms() {
           <p className="text-xs uppercase tracking-[0.18em] text-[#8B714A]">
             On this page
           </p>
+
           <nav className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {sections.map(([id, label]) => (
               <a
@@ -94,79 +96,104 @@ export default function Terms() {
               </a>
             ))}
           </nav>
-          <Link
-            to="/privacy"
-            className="mt-8 inline-block border-b border-[#8B714A] pb-1 text-sm text-[#8B714A]"
-          >
-            Read our Privacy Policy →
-          </Link>
+
+          <LegalLink to="/privacy">
+            <span className="mt-8 inline-block border-b border-[#8B714A] pb-1 no-underline">
+              Read our Privacy Policy →
+            </span>
+          </LegalLink>
         </aside>
 
         <article className="min-w-0">
           <p className="mb-8 text-sm leading-7 text-[#625C53]">
-            These Terms and Conditions (“Terms”) govern your use of the
-            Lock-In application, website and related services (“Service”).
-            By creating an account, subscribing to a plan or using the
-            Service, you agree to these Terms. Please read them carefully.
+            These Terms and Conditions ("Terms") govern your access
+            to and use of the Lock-In application, website and related
+            services ("Service"). By creating an account, purchasing
+            a subscription or using the Service, you agree to these
+            Terms. If you do not agree, do not use the Service.
           </p>
 
           <Section id="who-we-are" title="1. Who We Are">
             <p>
-              Lock-In is a productivity and planning service operated by
-              Sensation Marketing Agency (“Lock-In”, “we”, “us” or “our”).
+              Lock-In is a personal planning and productivity service
+              operated by Sensation Marketing Agency ("Lock-In",
+              "we", "us" or "our").
             </p>
             <p>
-              Registered business name and registration number: [confirm and
-              insert if applicable].
+              You can contact us using the email address or telephone
+              number provided in the Contact Us section of these Terms.
             </p>
-            <p>Business address: [insert confirmed business address].</p>
           </Section>
 
           <Section id="account" title="2. Eligibility and Your Account">
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                You must be at least 18 years old to use the Service.
-                [Confirm whether a parent or guardian consent arrangement
-                will be permitted for younger users.]
+                You must be at least 18 years old to create an account
+                and independently enter into a subscription agreement
+                with us.
               </li>
               <li>
-                You must provide accurate account information, including
-                your name, email address and country.
+                You must provide accurate, current account information
+                and update it when necessary.
               </li>
               <li>
-                You are responsible for activity under your account and for
-                keeping your login details secure. Notify us promptly if you
-                suspect unauthorised access.
+                You are responsible for maintaining the confidentiality
+                of your login credentials and for activity carried out
+                through your account.
               </li>
               <li>
-                Each account is intended for one individual. Do not share,
-                sell or transfer your account.
+                Notify us promptly if you suspect unauthorised access
+                to your account.
+              </li>
+              <li>
+                Your account is for your personal use. You must not
+                sell, transfer, share or provide access to it in a way
+                that circumvents our account or subscription rules.
+              </li>
+              <li>
+                We may take reasonable steps to protect accounts,
+                investigate suspected misuse and prevent unauthorised
+                access.
               </li>
             </ul>
           </Section>
 
           <Section id="service" title="3. What Lock-In Offers">
-            <p>Features depend on your subscription plan.</p>
             <p>
-              <strong className="text-[#25231F]">Basic:</strong> quarterly
-              vision and goals, monthly planning, weekly planners, notes
+              Lock-In helps you organise goals, plans, routines,
+              tasks, notes, self-care activities and personal reviews.
+              Available features depend on your subscription plan and
+              the features currently supported by the Service.
+            </p>
+
+            <p>
+              <strong className="text-[#25231F]">Basic:</strong>{" "}
+              Core planning features, including vision and goal
+              planning, monthly planning, weekly planners, notes
               and monthly reviews.
             </p>
+
             <p>
-              <strong className="text-[#25231F]">Premium:</strong> everything
-              in Basic, plus Lock-In AI features, including AI chat, AI voice
-              and permitted check-ins.
+              <strong className="text-[#25231F]">Premium:</strong>{" "}
+              Core planning features plus limited Lock-In AI
+              capabilities, which may include AI chat, voice
+              interactions and supported check-ins.
             </p>
+
             <p>
-              Both plans are intended to include email reminders. You can
-              manage reminder preferences in the app where those controls
-              are available.
+              Email reminders and other convenience features are
+              available where supported. Their availability may
+              depend on your settings, permissions and the
+              functionality of the Service.
             </p>
+
             <p>
-              We may add, change or remove features. If a material change
-              reduces a paid feature, we will communicate the change where
-              reasonably possible and handle affected subscriptions in
-              accordance with these Terms and applicable law.
+              We may introduce new features, improve existing ones
+              or discontinue features when reasonably necessary.
+              Where a change materially affects a paid feature,
+              we will provide notice where reasonably practicable
+              and address any applicable subscription rights in
+              accordance with these Terms and the law.
             </p>
           </Section>
 
@@ -175,368 +202,677 @@ export default function Terms() {
               <table className="w-full min-w-[300px] border-collapse text-left text-sm">
                 <thead>
                   <tr className="border-b border-[#25231F]/15">
-                    <th className="py-3 pr-4 font-medium text-[#25231F]">Plan</th>
-                    <th className="py-3 pr-4 font-medium text-[#25231F]">Price</th>
-                    <th className="py-3 font-medium text-[#25231F]">Includes</th>
+                    <th className="py-3 pr-4 font-medium text-[#25231F]">
+                      Plan
+                    </th>
+                    <th className="py-3 pr-4 font-medium text-[#25231F]">
+                      Price
+                    </th>
+                    <th className="py-3 font-medium text-[#25231F]">
+                      Includes
+                    </th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr className="border-b border-[#25231F]/10">
                     <td className="py-4 pr-4">Basic</td>
-                    <td className="py-4 pr-4 whitespace-nowrap">KSh 300/month</td>
-                    <td className="py-4">Core planning, without AI chat or voice.</td>
+                    <td className="whitespace-nowrap py-4 pr-4">
+                      KSh 300/month
+                    </td>
+                    <td className="py-4">
+                      Core planning features without AI chat or voice.
+                    </td>
                   </tr>
+
                   <tr className="border-b border-[#25231F]/10">
                     <td className="py-4 pr-4">Premium</td>
-                    <td className="py-4 pr-4 whitespace-nowrap">KSh 400/month</td>
-                    <td className="py-4">Core planning plus limited AI chat, voice and check-ins.</td>
+                    <td className="whitespace-nowrap py-4 pr-4">
+                      KSh 400/month
+                    </td>
+                    <td className="py-4">
+                      Core planning plus limited AI chat, voice
+                      and supported check-ins.
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
+
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                Subscriptions are billed monthly and are intended to renew
-                automatically unless cancelled before the next renewal.
+                Subscription prices are stated in Kenyan shillings
+                (KSh) and billed monthly unless a different billing
+                period is expressly shown at checkout.
               </li>
               <li>
-                Payments will be processed using the payment methods made
-                available at checkout. The payment provider and available
-                methods will be identified during checkout.
+                Subscriptions may renew automatically where recurring
+                billing is enabled. You can cancel before the next
+                renewal to prevent subsequent subscription charges.
+                Any applicable renewal details will be shown during
+                purchase or in your account.
               </li>
               <li>
-                You must be authorised to use the payment method you provide.
+                Payments must be made using an available payment
+                method that you are authorised to use. The payment
+                methods supported for a transaction will be displayed
+                during checkout.
               </li>
               <li>
-                Tax treatment and whether displayed prices include applicable
-                taxes must be confirmed before publication.
+                The final payable amount, including any applicable
+                taxes or additional charges, will be disclosed at
+                checkout before you confirm payment.
               </li>
               <li>
-                If payment fails, access to paid features may be paused after
-                the applicable grace period. The grace period and renewal
-                handling must be confirmed against the live service.
+                If a payment fails or a subscription expires, access
+                to paid features may be restricted until payment
+                succeeds or the subscription is renewed. We will
+                communicate relevant payment or access information
+                where supported.
               </li>
               <li>
-                We will provide at least 30 days' notice of price changes
-                before they apply to a subsequent renewal, subject to
-                applicable law.
+                If we change subscription prices, the revised price
+                will apply to new purchases and, after reasonable
+                advance notice of at least 30 days, to affected
+                subsequent renewals, subject to applicable law.
+              </li>
+              <li>
+                You are responsible for reviewing the plan,
+                price and billing terms presented before confirming
+                a purchase.
               </li>
             </ul>
           </Section>
 
           <Section id="refunds" title="5. Refunds and Cancellation">
             <p>
-              You may cancel your subscription at any time. Unless your
-              account is terminated for another permitted reason, cancelling
-              stops future renewals and your paid access continues until
-              the end of the period already paid for.
+              You may cancel your subscription at any time. Where
+              cancellation is completed successfully, it stops future
+              renewals, and your paid access ordinarily continues
+              until the end of the current paid period unless access
+              is lawfully suspended or terminated for another reason.
             </p>
+
             <p>
-              You may request a refund within seven days of the relevant
-              subscription payment. After that seven-day period, subscription
-              payments are generally non-refundable, except where a refund
-              is required by applicable law or otherwise approved under our
-              published policy.
+              You may request a refund within seven days of the
+              relevant subscription payment. After that period,
+              subscription payments are generally non-refundable,
+              except where a refund is required by applicable law
+              or is approved by us under an applicable refund policy.
             </p>
+
+            <p>
+              A refund request is not automatically an approval.
+              We may need to verify the transaction, subscription
+              status and reason for the request before making a
+              decision.
+            </p>
+
             <p>
               To request a refund or ask about cancellation, contact
-              sensationmagency@gmail.com and include the account email,
-              payment date and relevant payment reference. Do not send
-              passwords or full payment-card details.
+              sensationmagency@gmail.com. Include the email address
+              associated with your account, the payment date and
+              the payment reference if available. Never send your
+              password or full payment-card details.
             </p>
+
             <p>
-              Approved refunds will be handled through the original payment
-              method where supported, subject to the payment provider's
-              processing times and applicable law.
+              Approved refunds will ordinarily be returned through
+              the original payment method where supported. The time
+              required for the funds to appear depends on the payment
+              provider and financial institution.
             </p>
+
             <p>
-              Cancelling a subscription does not automatically delete your
-              account or planner content. Account deletion is a separate
-              action, subject to the data handling described in our{" "}
-              <Link to="/privacy" className="text-[#8B714A] underline underline-offset-4">
-                Privacy Policy
-              </Link>.
+              Cancelling a subscription does not automatically delete
+              your account or planner content. Account deletion is a
+              separate action and is subject to our{" "}
+              <LegalLink to="/privacy">Privacy Policy</LegalLink>.
             </p>
+
             <p>
-              These terms do not remove any consumer rights that cannot
-              lawfully be excluded or limited under Kenyan law.
+              Nothing in these Terms removes consumer rights or
+              remedies that cannot lawfully be excluded under
+              Kenyan law.
             </p>
           </Section>
 
           <Section id="ai" title="6. Lock-In AI">
             <p>
-              Lock-In AI offers productivity support, which may include
-              summaries, outlines, suggestions and planning assistance.
-              It is not medical, psychological, legal, financial or other
-              professional advice.
+              Lock-In AI provides productivity and planning assistance.
+              Depending on the features available to you, it may help
+              with brainstorming, organising tasks, reviewing progress,
+              summarising information and suggesting ways to approach
+              your goals.
             </p>
+
             <p>
-              AI responses may be inaccurate, incomplete or outdated.
-              Review important information and use your own judgement
-              before acting on it.
+              AI-generated responses may be inaccurate, incomplete,
+              misleading or outdated. You should review important
+              information and use your own judgement before acting
+              on suggestions.
             </p>
+
             <p>
-              AI check-ins or other permission-dependent features will
-              operate only as enabled by your settings and permissions.
-              You can withdraw permission using the available controls.
+              Lock-In AI is not a substitute for professional medical,
+              mental health, legal, financial or other specialist
+              advice. Do not rely on AI responses as the sole basis
+              for high-impact decisions.
             </p>
+
             <p>
-              Premium AI access is subject to usage limits, available
-              capacity and any limits displayed in the app. Exact message,
-              voice and other usage allowances should be checked in the
-              live plan description before publication.
+              Premium AI features are subject to usage allowances,
+              technical availability and any applicable limits
+              displayed in the Service. AI chat, voice and other
+              AI capabilities are not unlimited unless expressly
+              stated in the applicable plan details.
             </p>
+
             <p>
-              AI features may occasionally be unavailable or interrupted.
+              Additional AI usage, where offered, may be subject to
+              separate prices, credits or purchase terms. Any charge
+              must be presented before you confirm the relevant
+              purchase.
+            </p>
+
+            <p>
+              AI features may be unavailable due to maintenance,
+              service-provider interruptions, capacity constraints
+              or technical issues. We do not guarantee that every
+              AI request will receive a response or produce a
+              particular result.
+            </p>
+
+            <p>
+              Where an AI feature requires access to your planner
+              information, microphone or other device capability,
+              that feature will operate subject to the applicable
+              settings and permissions. You should only grant
+              permissions you are comfortable with.
             </p>
           </Section>
 
           <Section id="acceptable-use" title="7. Acceptable Use">
-            <p>You agree not to:</p>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>Use Lock-In for unlawful purposes or to harm others.</li>
-              <li>
-                Hack, probe, scrape, disrupt or reverse engineer the Service
-                except where applicable law permits such activity.
-              </li>
-              <li>Upload malware or attempt to compromise our systems.</li>
-              <li>
-                Use AI features to generate unlawful, abusive or harassing
-                content or to evade applicable usage limits.
-              </li>
-              <li>
-                Share, sell or transfer your account, impersonate another
-                person or misrepresent your identity.
-              </li>
-              <li>Interfere with another person's use of the Service.</li>
-            </ul>
             <p>
-              We may restrict, suspend or terminate accounts for serious
-              or repeated violations, subject to applicable law.
+              You agree to use Lock-In lawfully and responsibly.
+              You must not:
+            </p>
+
+            <ul className="list-disc space-y-2 pl-5">
+              <li>
+                Use the Service to violate applicable law or
+                infringe another person's rights.
+              </li>
+              <li>
+                Attempt to gain unauthorised access to accounts,
+                systems, infrastructure or data.
+              </li>
+              <li>
+                Introduce malware, interfere with the Service,
+                disrupt its operation or deliberately overload
+                its systems.
+              </li>
+              <li>
+                Scrape, harvest or collect information from the
+                Service through unauthorised means.
+              </li>
+              <li>
+                Reverse engineer, copy or circumvent technical
+                protections except to the extent that applicable
+                law expressly permits the activity.
+              </li>
+              <li>
+                Use AI features to facilitate unlawful activity,
+                harassment, abuse, fraud or the violation of
+                another person's rights.
+              </li>
+              <li>
+                Circumvent subscription charges, AI usage limits,
+                account restrictions or other security measures.
+              </li>
+              <li>
+                Impersonate another person, misrepresent your
+                identity or create accounts for deceptive purposes.
+              </li>
+              <li>
+                Sell, sublicense or commercially exploit the
+                Service without our written permission.
+              </li>
+            </ul>
+
+            <p>
+              We may investigate suspected violations and take
+              proportionate action, including restricting access
+              or suspending an account, subject to applicable law.
             </p>
           </Section>
 
           <Section id="content" title="8. Your Content">
             <p>
-              Subject to any rights held by others, you retain your rights
-              in the goals, tasks, notes, vision-board entries and other
-              content you create in Lock-In.
+              You retain the rights you hold in the goals, tasks,
+              notes, vision-board entries, plans and other material
+              you create or submit through Lock-In ("Your Content").
             </p>
+
             <p>
-              You are responsible for the content you submit and should
-              avoid entering information you do not want processed by the
-              Service or its enabled providers.
+              You are responsible for Your Content, including
+              ensuring that you have the rights necessary to
+              submit it and that it does not violate applicable
+              law or another person's rights.
             </p>
+
             <p>
-              We do not claim ownership of your personal planner content.
-              However, the absolute statement that we never access or process
-              content should not be relied upon until the app's actual
-              technical operation, support access and AI processing have
-              been verified. See the Privacy Policy for the intended data
-              handling disclosures.
+              You grant us permission to host, store, process,
+              transmit and display Your Content only as reasonably
+              necessary to provide, maintain, secure and support
+              the Service, operate features you choose to use,
+              and comply with legal obligations.
+            </p>
+
+            <p>
+              Where you choose to use AI features, relevant
+              information may be processed to generate responses.
+              The processing of personal data and the use of
+              service providers are explained further in our{" "}
+              <LegalLink to="/privacy">Privacy Policy</LegalLink>.
+            </p>
+
+            <p>
+              You should avoid submitting passwords, payment-card
+              details or other sensitive information that is not
+              needed for your planning activities. Consider
+              exporting or retaining copies of important content
+              where the Service provides that functionality.
+            </p>
+
+            <p>
+              We do not acquire ownership of Your Content simply
+              because you use Lock-In. Any use of Your Content
+              remains subject to these Terms, the functionality
+              you choose to use and applicable privacy law.
             </p>
           </Section>
 
-          <Section id="intellectual-property" title="9. Our Intellectual Property">
+          <Section
+            id="intellectual-property"
+            title="9. Our Intellectual Property"
+          >
             <p>
-              The Lock-In name, branding, software, visual design and
-              materials we create belong to their respective owners or
-              licensors.
+              The Lock-In name, branding, logos, software, interface,
+              visual design, written materials and other elements
+              of the Service are owned by or licensed to their
+              respective rights holders and are protected by
+              applicable intellectual property laws.
             </p>
+
             <p>
-              While your account is in good standing, we grant you a
-              personal, limited, non-exclusive, non-transferable and
-              revocable right to use the Service for your own planning,
-              subject to these Terms.
+              Subject to these Terms and your active subscription
+              where one is required, we grant you a limited,
+              personal, non-exclusive, non-transferable and
+              revocable licence to use the Service for your
+              personal planning and productivity activities.
             </p>
+
             <p>
-              These Terms do not transfer ownership of our intellectual
-              property to you.
+              You may not copy, distribute, modify, sell or create
+              derivative works from our protected materials except
+              with our permission or where applicable law permits.
+            </p>
+
+            <p>
+              These Terms do not transfer ownership of our
+              intellectual property to you. Any rights not
+              expressly granted remain with their respective
+              owners or licensors.
             </p>
           </Section>
 
           <Section id="affiliates" title="10. Affiliate Programme">
             <p>
-              The affiliate programme is subject to approval and any
-              additional programme rules communicated to participants.
+              Lock-In may offer an affiliate programme that rewards
+              approved participants for referring eligible paying
+              subscribers. Participation is subject to approval,
+              these Terms and any additional programme rules
+              communicated to affiliates.
             </p>
+
             <ul className="list-disc space-y-2 pl-5">
               <li>
-                Applicants must pass our review before receiving a referral
-                code or link. We may request information relevant to
-                eligibility and may decline or remove participants for
-                legitimate programme or compliance reasons.
+                Applicants must receive approval before promoting
+                Lock-In as an affiliate or receiving access to
+                affiliate referral tools.
               </li>
               <li>
-                Approved affiliates earn 15% of each eligible subscription
-                payment made by a user they referred, for that user's first
-                three monthly payments. At the current prices, this is
-                KSh 45 per Basic payment or KSh 60 per Premium payment.
+                Approved affiliates earn a commission of 15% of
+                each eligible subscription payment made by a user
+                they refer, for that user's first three monthly
+                payments.
               </li>
               <li>
-                Commission is earned only after the payment clears and the
-                seven-day refund request window has passed.
+                At the listed subscription prices, this equals
+                KSh 45 per eligible Basic payment or KSh 60 per
+                eligible Premium payment.
               </li>
               <li>
-                Commissions relating to refunded, reversed, charged-back
-                or fraudulent transactions may be cancelled. Amounts already
-                paid may be offset against future commissions where lawful.
+                Commission is earned only after the relevant
+                payment has cleared and the seven-day refund
+                request period has passed, provided the transaction
+                remains eligible under the programme rules.
               </li>
               <li>
-                Payout method: M-Pesa, subject to verification of payout
-                details. Payout schedule and minimum payout amount must be
-                confirmed before the programme launches.
+                Commissions associated with refunded, reversed,
+                charged-back, fraudulent or otherwise ineligible
+                transactions may be withheld or reversed. Where
+                lawful, amounts already paid may be offset against
+                future commissions.
               </li>
               <li>
-                Self-referrals, fake accounts and non-genuine sign-ups are
-                prohibited.
+                Affiliate payouts are made through M-Pesa using
+                verified payout details. The applicable payout
+                schedule and any minimum payout threshold will
+                be communicated to approved affiliates through
+                the programme's applicable instructions.
               </li>
               <li>
-                Affiliates must not spam, mislead users or promote features
-                that are not available.
+                Self-referrals, fake accounts, misleading referrals
+                and attempts to manipulate the commission system
+                are prohibited.
               </li>
               <li>
-                Affiliates are independent promoters, not our employees
-                or agents, and are responsible for their own tax obligations.
+                Affiliates must not spam, make deceptive claims,
+                promise unavailable features or represent
+                themselves as employees or authorised agents
+                of Lock-In.
               </li>
               <li>
-                We may change commission rates for future referrals with
-                at least 30 days' notice. We may suspend or end participation
-                for violations of these Terms or the affiliate rules.
+                Affiliates participate independently and are
+                responsible for their own tax and legal obligations.
+                Participation does not create an employment,
+                partnership or agency relationship.
+              </li>
+              <li>
+                We may change commission rates for future eligible
+                referrals with at least 30 days' notice. We may
+                suspend or end participation for fraud, material
+                violations or other legitimate programme reasons.
               </li>
             </ul>
           </Section>
 
           <Section id="availability" title="11. Availability and Changes">
             <p>
-              We aim to keep Lock-In available, but cannot guarantee that
-              it will always be uninterrupted, secure or error-free.
+              We aim to provide a reliable Service, but we do not
+              guarantee uninterrupted, continuous or error-free
+              operation.
             </p>
+
             <p>
-              We may perform maintenance, update features or suspend parts
-              of the Service. We will give reasonable notice of significant
-              changes where practicable and comply with applicable law.
+              Access may be affected by maintenance, software
+              updates, internet connectivity, device limitations,
+              third-party providers, security incidents or
+              circumstances beyond our reasonable control.
+            </p>
+
+            <p>
+              We may update, maintain or modify the Service.
+              Where a change materially affects paid functionality,
+              we will provide reasonable notice where practicable
+              and comply with applicable legal obligations.
+            </p>
+
+            <p>
+              We are not responsible for interruptions caused
+              entirely by your device, network, internet service
+              provider or third-party services outside our
+              reasonable control, subject to rights that cannot
+              lawfully be excluded.
             </p>
           </Section>
 
           <Section id="disclaimers" title="12. Disclaimers">
             <p>
-              To the extent permitted by applicable law, the Service is
-              provided on an “as available” basis. Lock-In is a planning
-              tool and we do not guarantee that it will produce a particular
-              outcome, such as achieving a goal or increasing productivity.
+              Lock-In is a planning and productivity tool. It can
+              help you organise activities and reflect on progress,
+              but we do not guarantee that you will achieve a
+              particular goal, improve productivity or obtain
+              a specific personal or professional outcome.
             </p>
+
             <p>
-              Nothing in this section limits any guarantee, right or remedy
-              that cannot lawfully be excluded.
+              To the extent permitted by applicable law, the
+              Service is provided according to its availability
+              and current functionality. We do not warrant that
+              every feature will always be available, compatible
+              with every device or free from errors.
+            </p>
+
+            <p>
+              You remain responsible for your decisions, plans
+              and actions, including how you use AI-generated
+              information.
+            </p>
+
+            <p>
+              Nothing in these Terms excludes any statutory
+              guarantee, consumer right or remedy that cannot
+              lawfully be excluded.
             </p>
           </Section>
 
           <Section id="liability" title="13. Limitation of Liability">
             <p>
-              To the extent permitted by Kenyan law, we are not liable for
-              indirect or consequential loss arising from use of the Service.
+              To the extent permitted by applicable law, we are
+              not liable for indirect, incidental, special or
+              consequential losses arising from your use of,
+              or inability to use, the Service.
             </p>
+
             <p>
-              Any limitation of liability for loss of data, profits,
-              opportunity or other losses, and any monetary cap on our total
-              liability, must be interpreted subject to applicable law and
-              consumer rights.
+              We are not responsible for losses arising from
+              inaccurate information you provide, your failure
+              to protect your account credentials, your decisions
+              based on AI-generated responses or interruptions
+              caused by circumstances outside our reasonable
+              control, except where applicable law provides
+              otherwise.
             </p>
+
             <p>
-              Proposed liability cap: [confirm whether the cap is based on
-              payments made in the preceding three or twelve months and
-              have it reviewed by a Kenyan lawyer].
+              You are responsible for maintaining appropriate
+              copies of important information where the Service
+              offers export or backup functionality. We do not
+              guarantee that information will be available
+              indefinitely or recoverable in every circumstance.
             </p>
+
             <p>
-              Nothing in these Terms excludes or limits liability that
-              cannot legally be excluded or limited, or rights available
-              to consumers under applicable Kenyan law.
+              Nothing in these Terms excludes or limits liability
+              for fraud, fraudulent misrepresentation, wilful
+              misconduct or any other liability that cannot
+              lawfully be excluded or limited. These Terms do
+              not restrict consumer rights or remedies available
+              under applicable Kenyan law.
             </p>
           </Section>
 
           <Section id="termination" title="14. Suspension and Termination">
             <p>
-              You may stop using Lock-In and request account deletion through
-              the available account controls or by contacting us.
+              You may stop using Lock-In at any time. You may
+              cancel your subscription and request account
+              deletion using the available account controls
+              or by contacting us.
             </p>
+
             <p>
-              We may restrict or terminate access for material breach of
-              these Terms, fraud, non-payment or legal reasons. We will
-              provide notice where reasonable and legally required.
+              We may restrict, suspend or terminate access where
+              reasonably necessary because of a material breach
+              of these Terms, suspected fraud, unlawful activity,
+              security risks, non-payment or a legal requirement.
             </p>
+
             <p>
-              When access ends, your permission to use the Service ends.
-              Provisions intended to continue, including intellectual
-              property, liability, disputes and governing law, will survive
-              to the extent applicable.
+              Where reasonably practicable and legally permitted,
+              we will provide notice and an opportunity to address
+              the issue before taking action. Immediate restrictions
+              may be necessary to protect users, the Service or
+              our systems.
+            </p>
+
+            <p>
+              If your access ends, your permission to use the
+              affected features ends. Any refund entitlement
+              will be determined under these Terms and applicable
+              law.
+            </p>
+
+            <p>
+              Account termination and subscription cancellation
+              are separate matters unless the Service expressly
+              combines them. Deletion and retention of personal
+              data are governed by our{" "}
+              <LegalLink to="/privacy">Privacy Policy</LegalLink>.
+            </p>
+
+            <p>
+              Provisions that by their nature should continue
+              after termination, including those relating to
+              intellectual property, liability, disputes and
+              governing law, will continue to apply to the
+              extent permitted by law.
             </p>
           </Section>
 
           <Section id="privacy" title="15. Privacy">
             <p>
               Our{" "}
-              <Link to="/privacy" className="text-[#8B714A] underline underline-offset-4">
-                Privacy Policy
-              </Link>{" "}
-              explains how personal data is handled and forms part of these
-              Terms.
+              <LegalLink to="/privacy">Privacy Policy</LegalLink>
+              {" "}explains how we collect, use, store, disclose
+              and protect personal data in connection with
+              Lock-In.
+            </p>
+
+            <p>
+              By using the Service, you acknowledge that personal
+              data will be handled as described in that policy
+              and in accordance with applicable data protection
+              law.
+            </p>
+
+            <p>
+              Please read the Privacy Policy to understand your
+              rights, the purposes for which information is
+              processed and how to contact us about privacy
+              matters.
             </p>
           </Section>
 
           <Section id="law" title="16. Governing Law and Disputes">
             <p>
-              These Terms are governed by the laws of Kenya.
+              These Terms are governed by the laws of Kenya,
+              subject to any mandatory legal protections that
+              apply to you.
             </p>
+
             <p>
-              If you have a concern, contact us first at
-              sensationmagency@gmail.com so we can try to resolve it.
-              This does not prevent you from exercising any legal rights
-              or pursuing remedies available to you.
+              If you have a concern or dispute, please contact
+              us first at sensationmagency@gmail.com so we can
+              try to resolve the matter fairly and promptly.
             </p>
+
             <p>
-              Disputes will be handled by the courts or other competent
-              bodies in Kenya as permitted by applicable law.
+              Contacting us does not prevent you from exercising
+              your statutory rights, making a complaint to a
+              competent authority or pursuing any other remedy
+              available under applicable law.
+            </p>
+
+            <p>
+              Any dispute that cannot be resolved informally
+              may be referred to a court or other competent
+              body in Kenya with jurisdiction over the matter,
+              subject to applicable law.
             </p>
           </Section>
 
           <Section id="changes" title="17. Changes to These Terms">
             <p>
-              We may update these Terms from time to time. We will communicate
-              material changes through the Service or by email before they
-              take effect where appropriate or required by law.
+              We may update these Terms to reflect changes to
+              Lock-In, our features, payment arrangements, legal
+              obligations or business practices.
             </p>
+
             <p>
-              If you do not agree with an update, you may stop using the
-              Service and cancel your subscription before the update takes
-              effect. Continued use after an effective change may indicate
-              acceptance where permitted by law.
+              When a change is material, we will provide notice
+              through the Service, by email or through another
+              reasonable communication method before it takes
+              effect, where practicable or required by law.
+            </p>
+
+            <p>
+              The updated version will display its effective
+              date. If you do not agree to a material change,
+              you may stop using the Service and cancel your
+              subscription before the change takes effect.
+            </p>
+
+            <p>
+              Where applicable law requires express consent
+              to a change, we will obtain that consent rather
+              than relying solely on continued use.
             </p>
           </Section>
 
           <Section id="general" title="18. General">
             <p>
-              These Terms and the Privacy Policy form the agreement between
-              you and Lock-In regarding the Service, together with any
-              applicable additional terms presented at purchase or when
-              using specific features.
+              These Terms and the Privacy Policy govern your
+              use of Lock-In, together with any additional
+              terms clearly presented when you purchase or
+              use a specific feature.
             </p>
+
             <p>
-              If a provision is found invalid or unenforceable, the remaining
-              provisions continue to apply to the extent permitted by law.
-              Failure to enforce a right immediately does not waive that right.
+              If any provision of these Terms is found invalid
+              or unenforceable, the remaining provisions will
+              continue to apply to the extent permitted by law.
             </p>
+
             <p>
-              You may not transfer your account or your rights under these
-              Terms to another person without our consent.
+              A failure or delay in exercising a right under
+              these Terms does not automatically waive that
+              right.
+            </p>
+
+            <p>
+              You may not transfer your account or assign your
+              rights or obligations under these Terms without
+              our consent. We may transfer our rights and
+              obligations where permitted by law, provided
+              that doing so does not unlawfully reduce your
+              rights.
+            </p>
+
+            <p>
+              These Terms do not create an employment,
+              partnership, joint venture or agency relationship
+              between you and us.
             </p>
           </Section>
 
           <Section id="contact" title="19. Contact Us">
-            <p>For questions about these Terms, contact:</p>
+            <p>
+              If you have questions about these Terms,
+              subscriptions, cancellations or the operation
+              of Lock-In, you can reach us using the details
+              below.
+            </p>
+
             <div className="border border-[#25231F]/10 p-5">
-              <p><strong className="text-[#25231F]">Lock-In</strong></p>
-              <p>Operator: Sensation Marketing Agency</p>
+              <p>
+                <strong className="text-[#25231F]">Lock-In</strong>
+              </p>
+
+              <p>Operated by Sensation Marketing Agency</p>
+
               <p>
                 Email:{" "}
                 <a
@@ -546,6 +882,7 @@ export default function Terms() {
                   sensationmagency@gmail.com
                 </a>
               </p>
+
               <p>
                 Phone / WhatsApp:{" "}
                 <a
@@ -555,14 +892,15 @@ export default function Terms() {
                   +254 797 983216
                 </a>
               </p>
-              <p>Business address: [insert confirmed business address].</p>
             </div>
           </Section>
 
           <div className="border-t border-[#25231F]/10 pt-8">
-            <DraftNotice />
-            <p className="mt-6 text-sm text-[#625C53]">
-              Also see our <Link to="/privacy" className="text-[#8B714A] underline underline-offset-4">Privacy Policy</Link>.
+            <p className="text-sm leading-7 text-[#625C53]">
+              By using Lock-In, you acknowledge these Terms.
+              Please also review our{" "}
+              <LegalLink to="/privacy">Privacy Policy</LegalLink>
+              {" "}for information about personal data and privacy.
             </p>
           </div>
         </article>
